@@ -5,8 +5,8 @@ import MyGame from './scenes/test'
 const config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
-    width: 400,
-    height: 300,
+    width: 900,
+    height: 900,
     scene: MyGame,
     scale: {
         zoom: 2

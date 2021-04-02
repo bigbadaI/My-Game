@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "man.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 89,
+				"h": 127
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Male 12-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 96,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 3,
+						"w": 87,
+						"h": 125
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 87,
+						"h": 125
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f3fec1db3986b931c4af338a7820d50f:3e3de71d9e45bd5ce206fa783ed77a7e:7cb16ae2a7812a83bde2d0f7d63f713f$"
+	}
+}
