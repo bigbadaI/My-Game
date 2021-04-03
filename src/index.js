@@ -4,9 +4,16 @@ import MyGame from './scenes/test'
 
 const config = {
     type: Phaser.AUTO,
-    parent: 'phaser-example',
+    parent: 'phaser',
     width: 900,
     height: 900,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: 0,
+            debug: false,
+        }
+    },
     scene: MyGame,
     scale: {
         zoom: 2
