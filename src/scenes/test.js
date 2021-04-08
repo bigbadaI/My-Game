@@ -4,7 +4,6 @@ import Test from '../assets/test.json';
 import WorldTiles from '../assets/world_map_tiles.png'
 import Man from '../assets/Male 12-3.png'
 
-const player = {}
 export default class MyGame extends Phaser.Scene
 {
 
@@ -71,36 +70,42 @@ export default class MyGame extends Phaser.Scene
       const map = this.make.tilemap({ key: 'Test' });
       const tileset = map.addTilesetImage('World', 'WorldTiles');
       map.createStaticLayer('Tile Layer 1', tileset)
-      player.man = this.physics.add.sprite(100, 100, 'man')
+      this.player = this.physics.add.sprite(100, 100, 'man')
         .play('down-idle')
-        console.log(player)
+       
+      this.physics.world.bounds.width = map.widthInPixels;
+      this.physics.world.bounds.height = map.heightInPixels;
+      this.player.setCollideWorldBounds(true);
+      this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+      this.cameras.main.startFollow(this.player);
+      this.cameras.main.roundPixels = true;
     }
 
     update() {
       const speed = 200
 
       if (this.cursors.left.isDown) {
-        player.man.setVelocityX(-speed)
-        player.man.play('left-walk', true)
+        this.player.setVelocityX(-speed)
+        this.player.play('left-walk', true)
       }
       else if (this.cursors.right.isDown) {
-        player.man.setVelocityX(speed)
-        player.man.play('right-walk', true)
+        this.player.setVelocityX(speed)
+        this.player.play('right-walk', true)
       }
       else if (this.cursors.down.isDown) {
-        player.man.setVelocityY(speed)
-        player.man.play('down-walk', true)
+        this.player.setVelocityY(speed)
+        this.player.play('down-walk', true)
       }
       else if (this.cursors.up.isDown) {
-        player.man.setVelocityY(-speed)
-        player.man.play('up-walk', true)
+        this.player.setVelocityY(-speed)
+        this.player.play('up-walk', true)
       }
       else {
-        player.man.setVelocity(0)
-        const key = player.man.anims.currentAnim.key
+        this.player.setVelocity(0)
+        const key = this.player.anims.currentAnim.key
         const parts = key.split('-')
         const direction = parts[0]
-        player.man.play(`${direction}-idle`)
+        this.player.play(`${direction}-idle`)
       }
     }
 }

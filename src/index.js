@@ -1,12 +1,13 @@
 import Phaser from 'phaser';
 import MyGame from './scenes/test'
+import BattleScene from './scenes/battle'
 // import logoImg from './assets/logo.png';
 
 const config = {
     type: Phaser.AUTO,
     parent: 'phaser',
-    width: 900,
-    height: 900,
+    width: 500,
+    height: 300,
     physics: {
         default: 'arcade',
         arcade: {
@@ -14,7 +15,7 @@ const config = {
             debug: false,
         }
     },
-    scene: MyGame,
+    scene: [BattleScene, MyGame],
     scale: {
         zoom: 2
     }
